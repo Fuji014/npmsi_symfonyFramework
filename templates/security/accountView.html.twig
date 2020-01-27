@@ -1,0 +1,56 @@
+{{ include('includes/AdminParts/header.html.twig') }}
+<div class="main-content-inner">
+<!-- data table start -->
+                    <div class="col-12 mt-5">
+                        <div class="card">
+                        {% for message in app.flashes('success') %}
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                        {% endfor %}
+                            <div class="card-body">
+
+                                <h4 class="header-title pull-left">Table Account</h4>
+                                <a href="{{ path('security_create') }}" class="btn btn-rounded btn-warning mb-3 pull-right"><span class="fa fa-plus-circle"></span> Add New Account</a>
+                                <div class="data-tables">
+                                    <table id="dataTable" class="text-center">
+                                        <thead class="bg-light text-capitalize">
+                                            <tr>
+                                                <th>Username</th>
+                                                <th>Email</th>
+                                                <th>Image</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for account in account %}
+                                            <tr>
+                                                <td><p title="{{account.Username}}" id="Dont">{{account.Username}}</p></td>
+                                                <td><p title="{{account.Email}}" id="Dont">{{account.Email}}</p></td>
+                                                <td><p title="{{account.Image}}" id="Dont">{{account.Image}}</p></td>
+                                                
+                                                <td>
+                                                <a href='{{ path('security_detail',{ id:account.Id }) }}' title='View Record'><span class='ti-eye'></span></a>
+                                                <a href='{{ path('security_edit',{id:account.Id}) }}' title='Update Record'><span class='ti-pencil-alt'></span></a>
+                                                <a href='{{ path('security_delete',{ id:account.Id }) }}' title='Delete Record'><span class='ti-trash'></span></a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+
+                    <!-- data table end -->
+                    <!-- Primary table start -->
+
+</div>
+{{ include('includes/AdminParts/footer.html.twig') }}

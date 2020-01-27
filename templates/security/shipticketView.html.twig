@@ -1,0 +1,51 @@
+{{ include('includes/AdminParts/header.html.twig') }}
+<div class="main-content-inner">
+<!-- data table start -->
+                    <div class="col-12 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <h4 class="header-title pull-left">Table Shipticket</h4>
+                                <a href="{{ path('shipticket_create') }}" class="btn btn-rounded btn-warning mb-3 pull-right"><span class="fa fa-plus-circle"></span> Add New Shipticket</a>
+                                <div class="data-tables">
+                                    <table id="dataTable" class="text-center">
+                                        <thead class="bg-light text-capitalize">
+                                            <tr>
+                                                <th>ShipName</th>
+                                                <th>Fullfare</th>
+                                                <th>Studentfare</th>
+                                                <th>Seniorfare</th>
+                                                <th>PWDfare</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for shiptype in shipticket %}
+                                            <tr>
+                                                <td><p title="{{shiptype.Shiptype.Shipname}}" id="Dont">{{shiptype.Shiptype.Shipname}}</p></td>
+                                                <td><p title="{{shiptype.Fullfare}}" id="Dont">{{shiptype.Fullfare}}</p></td>
+                                                <td><p title="{{shiptype.Studentfare}}" id="Dont">{{shiptype.Studentfare}}</p></td>
+                                                <td><p title="{{shiptype.Seniorfare}}" id="Dont">{{shiptype.Seniorfare}}</p></td>
+                                                <td><p title="{{shiptype.PWDfare}}" id="Dont">{{shiptype.PWDfare}}</p></td>
+                                                <td>
+                                                <a href='{{ path('shipticket_edit',{ id:shiptype.Id }) }}' title='View Record'><span class='fa fa-eye'></span></a>
+                                                <a href='{{ path('shipticket_edit',{id:shiptype.Id}) }}' title='Update Record'><span class='fa fa-pencil-square-o'></span></a>
+                                                <a href='#' title='Delete Record' class="delete-shipticket" data-id="{{ shiptype.Id }}"><span class='fa fa-trash'></span></a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+
+                    <!-- data table end -->
+                    <!-- Primary table start -->
+
+</div>
+{{ include('includes/AdminParts/footer.html.twig') }}

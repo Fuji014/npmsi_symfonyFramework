@@ -1,0 +1,26 @@
+{{ include('includes/AdminParts/header.html.twig') }}
+<div class="main-content-inner">
+<!-- data table start -->
+{% if User %}
+                        
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="media mb-5">
+                                    <img class="img-fluid mr-4" src="{{ asset('uploads/') ~ User.image }}" style="width:100px;" alt="image">
+                                    <div class="media-body">
+                                        <h4 class="mb-3">Account Information :</h4> 
+                                        <h6 class="mb-3">Name: {{ User.Username }}</h4> 
+                                        <h6 class="mb-3">Email: {{ User.Email | raw }}</h4> 
+                                        {# <small>{{ User.Email | raw }}</small> #}
+                                    </div>
+                                </div>
+                                <a href="{{ path('security_view') }}" class="btn btn-flat btn-primary mb-3">Back</a>
+                            </div>
+                        </div>
+{% endif %}
+
+
+
+
+</div>
+{{ include('includes/AdminParts/footer.html.twig') }}

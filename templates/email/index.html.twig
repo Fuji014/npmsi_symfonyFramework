@@ -1,0 +1,11 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+{{ form_start(form) }}
+{{ form_widget(form.Name) }}
+{{ form_widget(form.Gmailto) }}
+{{ form_widget(form.Subject) }}
+{{ form_widget(form.Body) }}
+{{ form_end(form) }}
+
+{% endblock body %}

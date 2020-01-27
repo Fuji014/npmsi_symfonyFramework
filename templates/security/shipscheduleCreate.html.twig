@@ -1,0 +1,31 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+{{ include('includes/AdminParts/header.html.twig') }}
+<div class="main-content-inner">
+
+{% for message in app.flashes('success') %}
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+	{{ message }}
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	<span aria-hidden="true">&times;</span>
+	</button>
+	</div>
+{% endfor %}
+{{ form_start(form) }}
+{{ form_row(form.Shiptype) }}
+{{ form_row(form.Leavingtime,{'id':'datetimepicker1'}) }}
+
+<button type="submit" class="btn btn-flat btn-primary mb-3">Submit</button>
+<a href="{{ path('shipschedule_view') }}" class="btn btn-flat btn-dark mb-3">Back</a>
+
+</div>
+{{ form_end(form) }}
+{{ include('includes/AdminParts/footer.html.twig') }}
+{% endblock body %}
+{# {% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/datetimepicker/jquery.datetimepicker.css') }}"/ >
+{% endblock %}
+{% block javascripts %}
+
+<script src="{{ asset('assets/datetimepicker/build/jquery.datetimepicker.full.min.js') }}"></script>
+{% endblock %} #}

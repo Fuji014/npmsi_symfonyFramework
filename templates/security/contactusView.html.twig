@@ -1,0 +1,21 @@
+{{ include('includes/AdminParts/header.html.twig') }}
+<div class="main-content-inner">
+<!-- data table start -->
+{% for ContactUsMessage in ContactUsMessage %}
+                        
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="media mb-5">
+                                    <img class="img-fluid mr-4" src="{{ asset('assets/admin/assets/images/author/author-img1.jpg')}}" style="width:50px;" alt="image">
+                                    <div class="media-body">
+                                        <h4 class="mb-3">{{ ContactUsMessage.Name }}</h4> 
+                                        {{ ContactUsMessage.Content }}
+                                        <br>
+                                        <small>{{ ContactUsMessage.createdAt | date('Y-M-D H:I:S') }}</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+{% endfor %}
+</div>
+{{ include('includes/AdminParts/footer.html.twig') }}

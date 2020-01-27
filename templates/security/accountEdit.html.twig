@@ -1,0 +1,30 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+{{ include('includes/AdminParts/header.html.twig') }}
+<div class="main-content-inner">
+{% for message in app.flashes('info') %}
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+	{{ message }}
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	<span aria-hidden="true">&times;</span>
+	</button>
+	</div>
+{% endfor %}
+{{ form_start(form) }}
+{{ form_row(form.Username) }}
+{{ form_row(form.Email) }}
+{# {{ form_row(form.Password.first,{'required':false,'label':'Password ( Leave this shit if you dont want to change )'}) }}
+{{ form_row(form.Password.second,{'required':false}) }} #}
+{{ form_row(form.Image,{'required':false}) }}
+<a href="{{ path('account_changepassword',{'id':UserId}) }}">Change Password?</a>
+
+<img src="{{ asset('uploads/') ~ image }}" class="mx-auto d-block" style="width:100px;">
+<div class="clearfix"></div>
+<button type="submit" class="btn btn-flat btn-primary mb-3">Edit</button>
+<a href="{{ path('security_view') }}" class="btn btn-flat btn-dark mb-3">Back</a>
+
+</div>
+{{ form_end(form) }}
+{{ include('includes/AdminParts/footer.html.twig') }}
+
+{% endblock body %}

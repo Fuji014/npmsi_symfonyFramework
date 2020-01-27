@@ -1,0 +1,26 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+{{ include('includes/AdminParts/header.html.twig') }}
+<div class="main-content-inner">
+
+{% for message in app.flashes('success') %}
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+	{{ message }}
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	<span aria-hidden="true">&times;</span>
+	</button>
+	</div>
+{% endfor %}
+{{ form_start(form) }}
+{{ form_row(form.Shipname) }}
+{{ form_row(form.Shipcontent) }}
+{{ form_row(form.Image) }}
+
+
+<button type="submit" class="btn btn-flat btn-primary mb-3">Submit</button>
+<a href="{{ path('shiptype_view') }}" class="btn btn-flat btn-dark mb-3">Back</a>
+
+</div>
+{{ form_end(form) }}
+{{ include('includes/AdminParts/footer.html.twig') }}
+{% endblock body %}

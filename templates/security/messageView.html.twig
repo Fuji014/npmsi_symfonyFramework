@@ -1,0 +1,51 @@
+{{ include('includes/AdminParts/header.html.twig') }}
+<div class="main-content-inner">
+<!-- data table start -->
+                    <div class="col-12 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <h4 class="header-title pull-left">Table Message</h4>
+                                <a href="{{ path('message_create') }}" class="btn btn-rounded btn-warning mb-3 pull-right"><span class="fa fa-plus-circle"></span> Add New Message</a>
+                                <div class="data-tables">
+                                    <table id="dataTable" class="text-center">
+                                        <thead class="bg-light text-capitalize">
+                                            <tr>
+                                                <th>CellNumber</th>
+                                                <th>Number</th>
+                                                <th>Message</th>
+                                                <th>CreatedAt</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for message in message %}
+                                            <tr>
+                                                <td><p title="{{message.Cellnumber}}" id="Dont">{{message.Cellnumber}}</p></td>
+                                                <td><p title="{{message.Number}}" id="Dont">{{message.Number}}</p></td>
+                                                <td><p title="{{message.Message}}" id="Dont">{{message.Message}}</p></td>
+                                                <td><p title="{{message.CreatedAt | date('Y-M-D H:I:S') }}" id="Dont">{{message.CreatedAt | date('Y-M-D H:I:S')}}</p></td>
+                                                <td><p title="{{message.Status}}" id="Dont">{{message.Status}}</p></td>
+                                                <td>
+                                                <a href='{{ path('message_edit',{ id:message.Id }) }}' title='View Record'><span class='ti-eye'></span></a>
+                                                <a href='{{ path('message_edit',{id:message.Id}) }}' title='Update Record'><span class='ti-pencil-alt'></span></a>
+                                                <a href='{{ path('message_delete',{id:message.Id}) }}' title='Delete Record'><span class='ti-trash'></span></a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+
+                    <!-- data table end -->
+                    <!-- Primary table start -->
+
+</div>
+{{ include('includes/AdminParts/footer.html.twig') }}

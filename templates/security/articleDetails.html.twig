@@ -1,0 +1,25 @@
+{{ include('includes/AdminParts/header.html.twig') }}
+<div class="main-content-inner">
+<!-- data table start -->
+{% if article %}
+                        
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="media mb-5">
+                                    <img class="img-fluid mr-4" src="{{ asset('uploads/') ~ article.image }}" style="width:500px;" alt="image">
+                                    <div class="media-body">
+                                        <h4 class="mb-3">{{ article.title }}</h4> 
+                                        {{ article.content | raw }}
+                                        <small>{{ article.createdAt | date('Y-M-D H:I:S') }}</small>
+                                    </div>
+                                </div>
+                                <a href="{{ path('article_table') }}" class="btn btn-flat btn-primary mb-3">Back</a>
+                            </div>
+                        </div>
+{% endif %}
+
+
+
+
+</div>
+{{ include('includes/AdminParts/footer.html.twig') }}

@@ -1,0 +1,302 @@
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>NPMSI - Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {# <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script> #}
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('assets/admin/assets/images/icon/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/metisMenu.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/slicknav.min.css') }}">
+    <!-- amchart css -->
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <!-- others css -->
+    <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/typography.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/default-css.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/responsive.css') }}">
+    <!-- modernizr css -->
+    <!-- Start datatable css -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/datetimepicker/jquery.datetimepicker.css') }}"/ >
+    <script src="{{ asset('assets/datetimepicker/build/jquery.datetimepicker.full.min.js') }}/"></script>
+    <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/custom.css') }}">
+    <script src="{{ asset('assets/admin/assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- preloader area end -->
+    <!-- page container area start -->
+    <div class="page-container">
+        <!-- sidebar menu area start -->
+        <div class="sidebar-menu">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <a href="index.html"><h1 style="color:#fff">NPMSI</h1></a>
+                </div>
+            </div>
+            <div class="main-menu">
+                <div class="menu-inner">
+                    <nav>
+                        <ul class="metismenu" id="menu">
+                            <li class="active">
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
+                                <ul class="collapse">
+                                    <li><a href="{{ path('category_view') }}">Manage Categories</a></li>
+                                    <li><a href="{{ path('article_table') }}">Manage Articles</a></li>
+                                    <li><a href="{{ path('message_view') }}">Manage Messages</a></li>
+                                    <li><a href="{{ path('security_view') }}">Manage Accounts</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-table"></i>
+                                    <span>Manage Ships</span></a>
+                                <ul class="collapse">
+                                    <li><a href="{{ path('shiptype_view') }}">Table Shipname</a></li>
+                                    <li><a href="{{ path('shiptype_create') }}">Create Shipname</a></li>
+                                    <li><a href="{{ path('shipschedule_view') }}">Table Schedule</a></li>
+                                    <li><a href="{{ path('shipschedule_create') }}">Create Schedule</a></li>
+                                    <li><a href="{{ path('shipticket_view') }}">Table Tickets</a></li>
+                                    <li><a href="{{ path('shipticket_create') }}">Create Tickets</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-slice"></i><span>Manage Categories</span></a>
+                                <ul class="collapse">
+                                    <li><a href="{{ path('category_view') }}">Manage Categories</a></li>
+                                    <li><a href="{{ path('category_create') }}">Create Categories</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>
+                                    Manage Article
+                                    </span></a>
+                                <ul class="collapse">
+                                    <li><a href="{{ path('article_table') }}">Table Article</a></li>
+                                    <li><a href="{{ path('article_create') }}">Create Article</a></li> 
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-comments-smiley "></i><span>Messages</span></a>
+                                <ul class="collapse">
+                                    <li><a href="{{ path('message_view') }}">Manage Message</a></li>
+                                    <li><a href="{{ path('message_create') }}">Compose Message</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-email"></i> <span>Emails</span></a>
+                                <ul class="collapse">
+                                    <li><a href="login.html">Manage Email</a></li>
+                                    <li><a href="{{ path('email_create') }}">Compose Email</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-user"></i><span>Accounts</span></a>
+                                <ul class="collapse">
+                                <li><a href="{{ path('security_view') }}"> Manage Account </a></li>
+                                    <li><a href="{{ path('security_create') }}"> Create Account </a></li>
+                                </ul>
+                            </li>
+                            {# 
+                            <li><a href="maps.html"><i class="ti-map-alt"></i> <span>maps</span></a></li>
+                            <li><a href="invoice.html"><i class="ti-receipt"></i> <span>Invoice Summary</span></a></li>
+                            
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-exclamation-triangle"></i>
+                                    <span>Error</span></a>
+                                <ul class="collapse">
+                                    <li><a href="404.html">Error 404</a></li>
+                                    <li><a href="403.html">Error 403</a></li>
+                                    <li><a href="500.html">Error 500</a></li>
+                                </ul>
+                            </li> #}
+                            {# <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-align-left"></i> <span>Multi
+                                        level menu</span></a>
+                                <ul class="collapse">
+                                    <li><a href="#">Item level (1)</a></li>
+                                    <li><a href="#">Item level (1)</a></li>
+                                    <li><a href="#" aria-expanded="true">Item level (1)</a>
+                                        <ul class="collapse">
+                                            <li><a href="#">Item level (2)</a></li>
+                                            <li><a href="#">Item level (2)</a></li>
+                                            <li><a href="#">Item level (2)</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Item level (1)</a></li>
+                                </ul>
+                            </li> #}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- sidebar menu area end -->
+        <!-- main content area start -->
+        <div class="main-content">
+            <!-- header area start -->
+            <div class="header-area">
+                <div class="row align-items-center">
+                    <!-- nav and search button -->
+                    <div class="col-md-6 col-sm-8 clearfix">
+                        <div class="nav-btn pull-left">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="search-box pull-left">
+                            <form action="#">
+                                <input type="text" name="search" placeholder="Search..." required>
+                                <i class="ti-search"></i>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- profile info & task notification -->
+                    <div class="col-md-6 col-sm-4 clearfix">
+                        <ul class="notification-area pull-right">
+                            <li id="full-view"><i class="ti-fullscreen"></i></li>
+                            <li id="full-view-exit"><i class="ti-zoom-out"></i></li>
+                            {# <li class="dropdown">
+                                <i class="ti-bell dropdown-toggle" data-toggle="dropdown">
+                                    <span>2</span>
+                                </i>
+                                <div class="dropdown-menu bell-notify-box notify-box">
+                                    <span class="notify-title">You have 3 new notifications <a href="#">view all</a></span>
+                                    <div class="nofity-list">
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                                            <div class="notify-text">
+                                                <p>You have Changed Your Password</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-comments-smiley btn-info"></i></div>
+                                            <div class="notify-text">
+                                                <p>New Commetns On Post</p>
+                                                <span>30 Seconds ago</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-primary"></i></div>
+                                            <div class="notify-text">
+                                                <p>Some special like you</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-comments-smiley btn-info"></i></div>
+                                            <div class="notify-text">
+                                                <p>New Commetns On Post</p>
+                                                <span>30 Seconds ago</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-primary"></i></div>
+                                            <div class="notify-text">
+                                                <p>Some special like you</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                                            <div class="notify-text">
+                                                <p>You have Changed Your Password</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                                            <div class="notify-text">
+                                                <p>You have Changed Your Password</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li> #}
+                            <li class="dropdown">
+                                <i class="fa fa-envelope-o dropdown-toggle" data-toggle="dropdown"><span>3</span></i>
+                                <div class="dropdown-menu notify-box nt-enveloper-box">
+                                    <span class="notify-title">You have {{ app.session.get('nameMoto') | length }} notifications <a href="{{ path('contactus_view') }}">view all</a></span>
+                                    <div class="nofity-list">
+                                        {% for messageContact in app.session.get('nameMoto') %}
+                                        {% if messageContact.Status == "Unread" %}
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="{{ asset('assets/admin/assets/images/author/author-img1.jpg')}}" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p class="Dont"><strong>{{ messageContact.Name }}</strong></p>
+                                                <span class="msg Dont"><strong>{{ messageContact.Content }}</strong></span>
+                                                <span>{{ messageContact.CreatedAt | date('Y-M-D H:I:S') }}</span>
+                                            </div>
+                                        </a>
+                                        {% else %}
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="{{ asset('assets/admin/assets/images/author/author-img1.jpg')}}" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p class="Dont">{{ messageContact.Name }}</p>
+                                                <span class="msg Dont">{{ messageContact.Content }}</span>
+                                                <span>{{ messageContact.CreatedAt | date('Y-M-D H:I:S') }}</span>
+                                            </div>
+                                        </a>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </li>
+                            {# <li class="settings-btn">
+                                <i class="ti-settings"></i>
+                            </li> #}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- header area end -->
+            <!-- page title area start -->
+            <div class="page-title-area">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <div class="breadcrumbs-area clearfix">
+                            <h4 class="page-title pull-left">Dashboard</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><a href="index.html">Home</a></li>
+                                <li><span>Dashboard</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 clearfix">
+                        <div class="user-profile pull-right">
+                            <img class="avatar user-thumb" src="{{ asset('uploads/') ~ app.user.Image }}" alt="avatar">
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{ app.user.username }}<i class="fa fa-angle-down"></i></h4>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ path('contactus_view') }}">Message</a>
+                                {# <a class="dropdown-item" href="#">Settings</a> #}
+                                <a class="dropdown-item" href="{{ path('security_logout') }}">Log Out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- page title area end -->
